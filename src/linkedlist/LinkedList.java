@@ -9,6 +9,21 @@ public class LinkedList {
         head = node;
     }
 
+    public void addLast(int value) {
+        Node node = new Node(value);
+        if (head == null) {
+            head = node;
+        } else {
+            Node current = head;
+
+            while (current.next != null) {
+                current = current.next;
+            }
+
+            current.next = node;
+        }
+    }
+
     public void printLinkedList() {
         if (head == null) {
             System.out.println("Empty LinkedList");
