@@ -24,6 +24,25 @@ public class LinkedList {
         }
     }
 
+    public void addAfterKthPosition(int value, int k) {
+        Node node = new Node(value);
+
+        if (head == null) {
+            head = node;
+        } else {
+            Node current = head;
+
+            //10->20->40->50
+            for (int i = 1; i < k; i++) {
+                current = current.next;
+            }
+
+            node.next = current.next;
+            current.next = node;
+
+        }
+    }
+
     public void printLinkedList() {
         if (head == null) {
             System.out.println("Empty LinkedList");
