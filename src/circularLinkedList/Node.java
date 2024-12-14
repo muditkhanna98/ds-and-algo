@@ -1,8 +1,8 @@
-package linkedlist;
+package circularLinkedList;
 
 public class Node {
-    public int value;
-    public Node next;
+    Node next;
+    int value;
 
     public Node(int value) {
         this.value = value;
