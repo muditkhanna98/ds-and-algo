@@ -3,10 +3,11 @@ package circularLinkedList;
 public class Main {
     public static void main(String[] args) {
         CircularLinkedList list = new CircularLinkedList();
-        list.addLast(10);
-        list.addLast(20);
-        list.addLast(30);
 
-        list.printLinkedList();
+        list.insertAtEnd(10);
+        list.insertAtEnd(30);
+        list.insertAtEnd(50);
+
+        list.printValues();
     }
 }

@@ -1,29 +1,39 @@
 package circularLinkedList;
 
 public class CircularLinkedList {
-    private Node head;
-    private Node tail;
+    Node head;
+    Node tail;
 
-    public void addLast(int value) {
+    public CircularLinkedList() {
+        this.head = null;
+        this.tail = null;
+    }
+
+    public void insertAtEnd(int value) {
         Node node = new Node(value);
-        if (head == null) {
+
+        if (head == null || tail == null) {
             head = tail = node;
+            return;
         } else {
-            tail.next = node;
-            tail = node;
-            tail.next = head;
+            this.tail.next = node;
+            this.tail = node;
         }
+
+        this.tail.next = head;
     }
 
-    public void printLinkedList() {
+    public void printValues() {
         if (head == null) {
-            System.out.println("Empty LinkedList");
-        } else {
-            Node current = head;
-            do {
-                System.out.println(current.value);
-                current = current.next;
-            } while (current != head);
+            System.out.println("List is empty");
+            return;
         }
+        Node current = head;
+        do {
+            System.out.println(current.value);
+            current = current.next;
+        } while (current != this.head);
     }
+
+
 }
