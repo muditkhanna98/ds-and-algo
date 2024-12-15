@@ -8,6 +8,8 @@ public class Main {
         list.insertAtEnd(30);
         list.insertAtEnd(50);
 
+
+        list.deleteValue(50);
         list.printValues();
     }
 }
