@@ -1,4 +1,4 @@
-package circularLinkedList;
+package linkedList.circularLinkedList;
 
 public class Node {
     public Node next;
