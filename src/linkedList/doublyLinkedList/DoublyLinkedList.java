@@ -4,28 +4,58 @@ public class DoublyLinkedList {
     Node head;
 
     public void insertAtIndex(int index, int value) {
-        Node node = new Node(value);
+        Node newNode = new Node(value);
 
         if (index == 0) {
-            node.next = head;
+            newNode.next = head;
             if (head != null) {
-                head.prev = node;
+                head.prev = newNode;
             }
-            head = node;
+            head = newNode;
         } else {
-            Node current = head;
+            Node iter = head;
             for (int i = 0; i < index - 1; i++) {
-                Node b = current.next;
-
-                current.next = node;
-
-                if (b != null) {
-                    b.prev = node;
-                }
-
-                node.next = b;
-                node.prev = current;
+                iter = iter.next;
             }
+
+            Node A = iter;
+            Node B = iter.next;
+
+            A.next = newNode;
+            if (B != null) {
+                B.prev = newNode;
+            }
+
+            newNode.next = B;
+            newNode.prev = A;
+        }
+    }
+
+    void deleteNode(int value) {
+        Node targetNode = head;
+        while (targetNode != null && targetNode.value != value) {
+            targetNode = targetNode.next;
+        }
+
+        if (targetNode == null)
+            return;
+
+        // Update A and B
+        Node A = targetNode.prev;
+        Node B = targetNode.next;
+
+        // A could be null if target is head
+        if (A != null) {
+            A.next = B;
+        }
+
+        // B could be null if target is tail
+        if (B != null) {
+            B.prev = A;
+        }
+
+        if (targetNode == head) {
+            head = B;
         }
     }
 
