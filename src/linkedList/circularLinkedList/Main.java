@@ -7,9 +7,10 @@ public class Main {
         list.insertAtEnd(10);
         list.insertAtEnd(30);
         list.insertAtEnd(50);
+        list.insertAtEnd(60);
+        list.insertAtEnd(100);
 
 
-        list.deleteValue(50);
-        list.printValues();
+        list.josephusProblem();
     }
 }

@@ -46,6 +46,25 @@ public class CircularLinkedList {
         }
     }
 
+    public void josephusProblem() {
+        //10->50
+        Node current = head;
+
+        while (current.next != current) {
+            Node knifeHandler = current.next.next;
+
+            if (current.next == head) {
+                head = knifeHandler;
+            }
+
+            current.next = knifeHandler;
+            current = current.next;
+        }
+
+
+        System.out.println(current.value);
+    }
+
     public void printValues() {
         if (head == null) {
             System.out.println("List is empty");
