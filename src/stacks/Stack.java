@@ -26,4 +26,20 @@ public class Stack {
             return -1;
         }
     }
+
+    public int peek() {
+        if (top >= 0) {
+            return arr[top];
+        } else {
+            return -1;
+        }
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    public boolean isFull() {
+        return top >= MAX_SIZE;
+    }
 }
