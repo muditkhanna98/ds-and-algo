@@ -1,5 +1,7 @@
 package stacks;
 
+import java.util.Arrays;
+
 public class Stack {
     private final int MAX_SIZE = 101;
     private int[] arr = new int[MAX_SIZE];
@@ -41,5 +43,23 @@ public class Stack {
 
     public boolean isFull() {
         return top >= MAX_SIZE;
+    }
+
+    public void decimalToBinary(int decimal) {
+        while (decimal > 0) {
+            int remainder = decimal % 2;
+            push(remainder);
+            decimal = decimal / 2;
+        }
+
+        if (isEmpty()) {
+            System.out.println("0");
+            return;
+        }
+
+        while (!isEmpty()) {
+            System.out.println(pop());
+        }
+
     }
 }
