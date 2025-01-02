@@ -1,8 +1,9 @@
 package stacks;
 
-import java.util.Arrays;
 
 public class Stack {
+    // stack library has issues
+    // in java use ArrayDeque interface to create a stack.
     private final int MAX_SIZE = 101;
     private int[] arr = new int[MAX_SIZE];
     private int top = -1;
@@ -45,21 +46,20 @@ public class Stack {
         return top >= MAX_SIZE;
     }
 
-    public void decimalToBinary(int decimal) {
-        while (decimal > 0) {
-            int remainder = decimal % 2;
+    public void convertDecimalToBinary(int value) {
+        while (value > 0) {
+            int remainder = value % 2;
             push(remainder);
-            decimal = decimal / 2;
+            value = value / 2;
         }
 
         if (isEmpty()) {
             System.out.println("0");
-            return;
         }
 
         while (!isEmpty()) {
             System.out.println(pop());
         }
-
     }
+
 }
