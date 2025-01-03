@@ -1,6 +1,9 @@
 package stacks;
 
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 public class Stack {
     // stack library has issues
     // in java use ArrayDeque interface to create a stack.
@@ -60,6 +63,24 @@ public class Stack {
         while (!isEmpty()) {
             System.out.println(pop());
         }
+    }
+
+    public int[] nextGreaterElement(int[] arr) {
+        //[4 5 2 25]
+        Deque<Integer> stack = new ArrayDeque<>();
+        int[] result = new int[arr.length];
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && stack.peek() < arr[i]) {
+                stack.pop();
+            }
+
+            result[i] = stack.isEmpty() ? -1 : stack.peek();
+
+            stack.push(arr[i]);
+        }
+
+        return result;
     }
 
 }
